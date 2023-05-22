@@ -10,4 +10,11 @@ function nextSeq() {
 $(".btn").on("click", function () {
     var userColour = $(this).attr("id");
     userPattern.push(userColour);
+    playSound(userColour);
 function playSound(colour) {
+function Animation(colour) {
+    $("#" + colour).addClass("pressed");
+    setTimeout(function () {
+        $("#" + colour).removeClass("pressed");
+    }, 100);
+}
