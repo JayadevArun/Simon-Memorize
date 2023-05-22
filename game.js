@@ -52,7 +52,17 @@ function checkAnswer(index) {
             }, 1000);
         }
     }
+    else {
+        var audio = new Audio("./sounds/wrong.mp3");
+        audio.play();
+        $("body").addClass("game-over");
 
+        $("h1").text("Game Over, Press Any Key to Restart");
 
+        setTimeout(function () {
+            $("body").removeClass("game-over");
+        }, 200);
 
+    }
+}
 
