@@ -17,17 +17,22 @@ function nextSeq() {
 
     $("#" + randomColour).fadeIn(100).fadeOut(100).fadeIn(100);
     playSound(randomColour);
+}
 
 $(".btn").on("click", function () {
     var userColour = $(this).attr("id");
     userPattern.push(userColour);
     playSound(userColour);
 
+    Animation(userColour);
 
     checkAnswer(userPattern.length - 1);
 })
 
 function playSound(colour) {
+    var audio = new Audio("./sounds/" + colour + ".mp3");
+    audio.play();
+}
 
 function Animation(colour) {
     $("#" + colour).addClass("pressed");
@@ -63,6 +68,12 @@ function checkAnswer(index) {
             $("body").removeClass("game-over");
         }, 200);
 
+        Restart();
     }
 }
 
+function Restart() {
+    level = 0;
+    gamePattern = [];
+    flag = false;
+}
