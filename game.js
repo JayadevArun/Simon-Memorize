@@ -6,6 +6,7 @@ var level = 0;
 var flag = false;
 
 function nextSeq() {
+    userPattern = [];
 
     level++;
     $("h1").text("Level " + level);
@@ -23,6 +24,8 @@ $(".btn").on("click", function () {
     playSound(userColour);
 
 
+    checkAnswer(userPattern.length - 1);
+})
 
 function playSound(colour) {
 
@@ -41,6 +44,14 @@ $(document).on("keydown", function () {
     }
 })
 
+function checkAnswer(index) {
+    if (userPattern[index] == gamePattern[index]) {
+        if (userPattern.length == gamePattern.length) {
+            setTimeout(function () {
+                nextSeq();
+            }, 1000);
+        }
+    }
 
 
 
