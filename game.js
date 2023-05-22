@@ -4,3 +4,6 @@ function nextSeq() {
     var randomNumber = Math.floor((Math.random()) * 4);
     var randomColour = buttonColour[randomNumber];
     gamePattern.push(randomColour);
+    $("#" + randomColour).fadeIn(100).fadeOut(100).fadeIn(100);
+    playSound(randomColour);
+function playSound(colour) {
